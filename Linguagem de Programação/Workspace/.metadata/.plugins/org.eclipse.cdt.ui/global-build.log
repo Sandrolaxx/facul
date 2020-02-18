@@ -1,0 +1,5 @@
+21:05:11 **** Rebuild of configuration Debug for project AulasDoAndrade ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o programa.o "..\\programa.c" 
+gcc -o AulasDoAndrade.exe programa.o 
+Info: Nothing to build for AulasDoAndrade

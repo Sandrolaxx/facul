@@ -1,0 +1,123 @@
+#include <stdio.h>
+#include<string.h>
+#include <locale.h>
+//Struct
+
+struct Trabalim{
+    double valor1;
+    double valor2;
+    int operacao;
+    int resultado;
+    char matriz[4][10];
+};
+
+//Função da Soma
+double soma(double n1,double n2){
+	printf("O resultado da soma é %.2lf\n",(n1+n2));
+}
+
+//Procedimento da subtração
+double subtracao(double n1,double n2){
+
+	double Subtracao;
+  	  Subtracao = n1 - n2;
+	return  Subtracao;
+}
+
+//Função da Divisão
+double divisao(double n1,double n2){
+	printf("O resultado da divisao é %.2lf\n",(n1/n2));
+}
+
+//Procedimento da multiplicação
+double multiplicacao(double n1,double n2){
+
+     double Mult;
+  	  Mult = n1 * n2;
+	return Mult;
+}
+
+int main(){
+    char char1[10];
+    char char2[10];
+    char char3[10];
+    char char4[10];
+    setlocale(LC_ALL, "Portuguese");
+    int tamanho;
+
+    printf("Informe a quantidade de repetições: ");
+    scanf("%d", &tamanho);
+    struct Trabalim calculadora[tamanho];
+
+    for(int i = 0;   i < tamanho; i++){
+    printf("Informe o primeiro valor: ");
+    scanf("%lf", &calculadora[i].valor1);
+
+    printf("Informe o segundo valor : ");
+    scanf("%lf", &calculadora[i].valor2);
+
+    printf("Escolha a operacao: ");
+    printf("-------------------------\n");
+    printf("|  SANDROLAXCALCULATORV2 |\n");
+    printf("-------------------------\n");
+    printf("|   1 - ADIÇÃO           |\n");
+    printf("|   2 - SUBTRAÇÃO        |\n");
+    printf("|   3 - DIVISÃO          |\n");
+    printf("|   4 - MULTIPLICAÇÃO    |\n");
+    printf("|   5 - SAIR             |\n");
+    printf("-------------------------\n");
+    scanf("%d", &calculadora[i].operacao);
+
+
+ switch(calculadora[i].operacao){
+
+        case 1:
+        calculadora[i].resultado=soma(calculadora[i].valor1, calculadora[i].valor2);
+        break;
+
+    	case 2:
+        calculadora[i].resultado=subtracao(calculadora[i].valor1, calculadora[i].valor2);
+        printf("O resultado da subtracao é %.2lf\n",subtracao(calculadora[i].valor1, calculadora[i].valor2));
+    	break;
+
+    	case 3:
+        calculadora[i].resultado=divisao(calculadora[i].valor1, calculadora[i].valor2);
+        break;
+
+        case 4:
+        calculadora[i].resultado=multiplicacao(calculadora[i].valor1, calculadora[i].valor2);
+        printf("O resultado da multiplicação é %.2lf\n",multiplicacao(calculadora[i].valor1, calculadora[i].valor2));
+    	break;
+
+        case 5:
+        printf("Obrigado por usar nossa aplicação!\n");
+        break;
+
+        default:
+        printf("Digite um numero válido!\n");
+        break;
+    }
+
+    sprintf(char1,"%d",(int)calculadora[i].valor1);
+    sprintf(char2,"%d",(int)calculadora[i].valor2);
+    sprintf(char3,"%d",(int)calculadora[i].operacao);
+    sprintf(char4,"%d",(int)calculadora[i].resultado);
+    fflush(stdin);
+    for(int j = 0;   j < 4; j++){
+        for(int y = 0;   y < 10; y++){
+            calculadora[i].matriz[0][y]=char1[y];
+            calculadora[i].matriz[1][y]=char2[y];
+            calculadora[i].matriz[2][y]=char3[y];
+            calculadora[i].matriz[3][y]=char4[y];
+            }
+        }
+       for(int j = 0;   j < 4; j++){
+          for(int y = 0;   y < 10; y++){
+            printf("Matriz %d:\n",calculadora[i].matriz[j][y]);
+
+            }
+        }
+    }
+    return 0;
+}
+
